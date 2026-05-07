@@ -1,0 +1,175 @@
+.authors-list-page { background: var(--off-white); min-height: 100vh; }
+
+.authors-list-hero {
+  background: linear-gradient(135deg, #3d1f0a 0%, var(--primary) 100%);
+  padding: 56px 0 48px;
+}
+
+.authors-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  color: var(--accent);
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.authors-list-content {
+  padding: 48px 0 72px;
+}
+
+.authors-big-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* ── Author card ── */
+.author-big-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.55s ease both;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s ease;
+}
+
+.author-big-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Cover strip */
+.author-card-covers {
+  height: 120px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: var(--secondary);
+}
+
+.author-cover-strip {
+  flex: 1;
+  object-fit: cover;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.author-big-card:hover .author-cover-strip {
+  transform: scale(1.08);
+}
+
+.author-card-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(20,10,5,0.55));
+}
+
+/* Body */
+.author-card-body {
+  padding: 0 22px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.author-card-avatar-wrap {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  margin-top: -38px;
+  margin-bottom: 14px;
+  border: 4px solid var(--white);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.author-big-card:hover .author-card-avatar-wrap {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(139,94,60,0.3), 0 0 0 3px rgba(212,163,115,0.4);
+}
+
+.author-card-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-card-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  transition: color 0.2s;
+}
+
+.author-big-card:hover .author-card-name { color: var(--primary); }
+
+.author-card-genre {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.author-card-bio {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.author-card-stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.author-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--secondary);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.author-stat-pill.followers {
+  background: rgba(139,94,60,0.08);
+  color: var(--primary);
+  border-color: rgba(139,94,60,0.2);
+}
+
+.author-big-card:hover .author-stat-pill {
+  border-color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .authors-big-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .author-card-bio  { display: none; }
+}
